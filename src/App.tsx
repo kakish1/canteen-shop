@@ -9,7 +9,14 @@ import {
   IonTabs,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { basketOutline, cardOutline, ellipse, personCircleOutline, square, triangle } from 'ionicons/icons';
+import {
+  basketOutline,
+  cardOutline,
+  ellipse,
+  personCircleOutline,
+  square,
+  triangle,
+} from 'ionicons/icons';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
@@ -32,42 +39,59 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import { Context } from './defaults';
+import { useState } from 'react';
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonTabs>
-        <IonRouterOutlet>
-          <Route exact path="/menu">
-            <Tab1 />
-          </Route>
-          <Route exact path="/order">
-            <Tab2 />
-          </Route>
-          <Route path="/profile">
-            <Tab3 />
-          </Route>
-          <Route exact path="/">
-            <Redirect to="/menu" />
-          </Route>
-        </IonRouterOutlet>
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="menu" href="/menu">
-            <IonIcon icon={basketOutline} />
-            <IonLabel>Меню</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="order" href="/order">
-            <IonIcon icon={cardOutline} />
-            <IonLabel>Корзина</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="profile" href="/profile">
-            <IonIcon icon={personCircleOutline} />
-            <IonLabel>Профиль</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
-    </IonReactRouter>
-  </IonApp>
-);
+const App: React.FC = () => {
+  const [role, setRole] = useState('student');
+  return (
+    <IonApp>
+      <IonReactRouter>
+        <Context.Provider
+          value={{
+            role: null,
+            basket: null,
+          }}>
+          <IonTabs>
+            <IonRouterOutlet>
+              <Route exact path="/menu">
+                <Tab1 />
+              </Route>
+              <Route exact path="/order">
+                <Tab2 />
+              </Route>
+              <Route path="/profile">
+                <Tab3 />
+              </Route>
+              <Route exact path="/">
+                <Redirect to="/menu" />
+              </Route>
+            </IonRouterOutlet>
+            <IonTabBar slot="bottom">
+              <IonTabButton tab="menu" href="/menu">
+                <IonIcon icon={basketOutline} />
+                <IonLabel>Меню</IonLabel>
+              </IonTabButton>
+              <IonTabButton tab="order" href="/order">
+                <IonIcon icon={cardOutline} />
+                <IonLabel>Корзина</IonLabel>
+              </IonTabButton>
+              {role === 'admin' && (
+                <IonTabButton tab="order" href="/order">
+                  <IonIcon icon={cardOutline} />
+                  <IonLabel>Корзина</IonLabel>
+                </IonTabButton>
+              )}
+              <IonTabButton tab="profile" href="/profile">
+                <IonIcon icon={personCircleOutline} />
+                <IonLabel>Профиль</IonLabel>
+              </IonTabButton>
+            </IonTabBar>
+          </IonTabs>
+        </Context.Provider>
+      </IonReactRouter>
+    </IonApp>
+  );
+};
 
 export default App;
