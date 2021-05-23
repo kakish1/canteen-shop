@@ -18,3 +18,8 @@ export type Login = {
   username: string;
   hashPassword: string;
 };
+
+export type ItemList = {
+  id: Number;
+  count: Number;
+};

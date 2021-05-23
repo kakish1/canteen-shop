@@ -1,8 +1,6 @@
 import {
   IonAvatar,
-  IonBackButton,
   IonButton,
-  IonButtons,
   IonCard,
   IonCardContent,
   IonCardHeader,
@@ -21,142 +19,28 @@ import {
   IonToolbar,
 } from '@ionic/react';
 import { addCircleOutline, removeCircleOutline } from 'ionicons/icons';
-import { useState } from 'react';
-import ExploreContainer from '../components/ExploreContainer';
+import { useContext, useState } from 'react';
 import './Tab1.css';
-
-const menuItems = [
-  {
-    id: 1,
-    img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
-    name: 'Pizza',
-    desc: 'Its cool meal',
-    price: '100tg',
-  },
-  {
-    id: 2,
-    img: 'https://img.buzzfeed.com/video-api-prod/assets/7500687a06b34ee29c84a044861a01fc/BFV9770_DoubleCheeseburgerasmadebyErikAnderson-Thumb1080SQ.jpg?output-format=auto&output-quality=auto',
-    name: 'Double Cheese Burger ',
-    desc: 'Its a mutherfucing BURGEEEEEEEEEEEEEEEEEEEER',
-    price: '100tg',
-  },
-  {
-    id: 3,
-    img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
-    name: 'Pizza',
-    desc: 'Its cool meal',
-    price: '100tg',
-  },
-  {
-    id: 4,
-    img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
-    name: 'Pizza',
-    desc: 'Its cool meal',
-    price: '100tg',
-  },
-  {
-    id: 5,
-    img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
-    name: 'Pizza',
-    desc: 'Its cool meal',
-    price: '100tg',
-  },
-  {
-    id: 6,
-    img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
-    name: 'Pizza',
-    desc: 'Its cool meal',
-    price: '100tg',
-  },
-  {
-    id: 7,
-    img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
-    name: 'Pizza',
-    desc: 'Its cool meal',
-    price: '100tg',
-  },
-  {
-    id: 8,
-    img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
-    name: 'Pizza',
-    desc: 'Its cool meal',
-    price: '100tg',
-  },
-  {
-    id: 9,
-    img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
-    name: 'Pizza',
-    desc: 'Its cool meal',
-    price: '100tg',
-  },
-  {
-    id: 10,
-    img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
-    name: 'Pizza',
-    desc: 'Its cool meal',
-    price: '100tg',
-  },
-  {
-    id: 11,
-    img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
-    name: 'Pizza',
-    desc: 'Its cool meal',
-    price: '100tg',
-  },
-  {
-    id: 12,
-    img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
-    name: 'Pizza',
-    desc: 'Its cool meal',
-    price: '100tg',
-  },
-
-  {
-    id: 13,
-    img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
-    name: 'Pizza',
-    desc: 'Its cool meal',
-    price: '100tg',
-  },
-  {
-    id: 14,
-    img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
-    name: 'Pizza',
-    desc: 'Its cool meal',
-    price: '100tg',
-  },
-  {
-    id: 15,
-    img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
-    name: 'Pizza',
-    desc: 'Its cool meal',
-    price: '100tg',
-  },
-  {
-    id: 16,
-    img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
-    name: 'Pizza',
-    desc: 'Its cool meal',
-    price: '100tg',
-  },
-];
+import { Context } from './../defaults/index';
 
 const Tab1: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
   const [currentMenu, setCurrentMenu] = useState<any>();
 
+  const { addItem, removeItem, counter, menuItems } = useContext(Context);
   const modalAction = (id: any) => {
     setShowModal(true);
+    // @ts-ignore
     setCurrentMenu(menuItems.find((el) => el.id == id));
   };
-  
   return (
     <IonPage>
-      <IonHeader>
+      <IonHeader translucent>
         <IonToolbar>
           <IonTitle>Меню</IonTitle>
         </IonToolbar>
       </IonHeader>
+
       <IonContent fullscreen>
         <IonModal isOpen={showModal} cssClass="my-custom-class">
           {showModal && (
@@ -176,30 +60,46 @@ const Tab1: React.FC = () => {
           )}
         </IonModal>
 
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Меню</IonTitle>
-          </IonToolbar>
+        <IonHeader style={{ marginTop: 15, marginBottom: 10, marginLeft: 120 }}>
+          <IonTitle>
+            Корзина:{' '}
+            {
+              // @ts-ignore
+              counter?.length
+            }
+          </IonTitle>
         </IonHeader>
 
         <IonList style={{ marginTop: 15 }} lines="inset">
           {menuItems &&
+            // @ts-ignore
             menuItems.map((item, index) => {
               return (
                 <IonItem key={index}>
                   <IonAvatar slot="start">
-                    <img src={item.img} />
+                    <img src={item.img} style={{ borderRadius: 15, width: 200, height: 40 }} />
                   </IonAvatar>
-                  <IonLabel onClick={() => modalAction(item.id)}>
-                    <h3>
-                      {item.name} {item.price}
-                    </h3>
-                    <p>{item.desc}</p>
+                  <IonLabel onClick={() => modalAction(item.id)} style={{ marginRight: '15px' }}>
+                    <h3>{item.name}</h3>
+                    <p>{item.price}</p>
                   </IonLabel>
-                  <IonButton color="success">
+                  <IonText>
+                    {!!counter &&
+                      // @ts-ignore
+                      counter?.map((el: any) => {
+                        if (el?.id === item.id) {
+                          if (el?.count !== 0) {
+                            return el?.count;
+                          } else {
+                            return '';
+                          }
+                        }
+                      })}
+                  </IonText>
+                  <IonButton color="success" onClick={() => addItem(item.id)}>
                     <IonIcon icon={addCircleOutline} />
                   </IonButton>
-                  <IonButton color="danger">
+                  <IonButton color="danger" onClick={() => removeItem(item.id)}>
                     <IonIcon icon={removeCircleOutline} />
                   </IonButton>
                 </IonItem>

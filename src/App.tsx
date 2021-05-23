@@ -40,12 +40,192 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import { Context } from './defaults';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Login from './pages/Login';
+import { ItemList } from './api/models';
 
 const App: React.FC = () => {
   const [role, setRole] = useState('student');
+  const [counter, setCounter] = useState<any>([]);
   const [token, setToken] = useState<any>(localStorage.getItem('token'));
+
+  let itemList: ItemList[] = [];
+
+  const addItem = (id: any) => {
+    itemList = counter;
+    if (itemList.length < 1) {
+      setCounter([{ ...counter, id, count: 1 }]);
+    } else {
+      if (itemList.some((el) => el.id === id)) {
+        setCounter(
+          itemList.map((el) => {
+            if (el.id === id) {
+              return { ...el, count: Number(el.count) + 1 };
+            } else {
+              return el;
+            }
+          }),
+        );
+      } else {
+        setCounter([...counter, { id, count: 1 }]);
+      }
+    }
+  };
+
+  const removeItem = (id: any) => {
+    itemList = counter;
+    if (itemList.find((el) => el.id === id)?.count === 1) {
+      if (itemList.length !== 1) {
+        itemList = itemList.filter((el) => el.id !== id);
+
+        setCounter(
+          itemList.map((el) => {
+            if (el.id === id) {
+              if (el.count === 0) {
+                return;
+              } else {
+                return { ...el, count: Number(el.count) - 1 };
+              }
+            } else {
+              return el;
+            }
+          }),
+        );
+      } else {
+        setCounter([]);
+      }
+    } else {
+      setCounter(
+        itemList.map((el) => {
+          if (el.id === id) {
+            if (el.count === 0) {
+              return;
+            } else {
+              return { ...el, count: Number(el.count) - 1 };
+            }
+          } else {
+            return el;
+          }
+        }),
+      );
+    }
+  };
+
+  const menuItems = [
+    {
+      id: 1,
+      img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
+      name: 'Pizza',
+      desc: 'Its cool meal',
+      price: '100tg',
+    },
+    {
+      id: 2,
+      img: 'https://img.buzzfeed.com/video-api-prod/assets/7500687a06b34ee29c84a044861a01fc/BFV9770_DoubleCheeseburgerasmadebyErikAnderson-Thumb1080SQ.jpg?output-format=auto&output-quality=auto',
+      name: 'Double Cheese Burger ',
+      desc: 'Its a mutherfucing BURGEEEEEEEEEEEEEEEEEEEER',
+      price: '100tg',
+    },
+    {
+      id: 3,
+      img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
+      name: 'Pizza',
+      desc: 'Its cool meal',
+      price: '100tg',
+    },
+    {
+      id: 4,
+      img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
+      name: 'Pizza',
+      desc: 'Its cool meal',
+      price: '100tg',
+    },
+    {
+      id: 5,
+      img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
+      name: 'Pizza',
+      desc: 'Its cool meal',
+      price: '100tg',
+    },
+    {
+      id: 6,
+      img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
+      name: 'Pizza',
+      desc: 'Its cool meal',
+      price: '100tg',
+    },
+    {
+      id: 7,
+      img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
+      name: 'Pizza',
+      desc: 'Its cool meal',
+      price: '100tg',
+    },
+    {
+      id: 8,
+      img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
+      name: 'Pizza',
+      desc: 'Its cool meal',
+      price: '100tg',
+    },
+    {
+      id: 9,
+      img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
+      name: 'Pizza',
+      desc: 'Its cool meal',
+      price: '100tg',
+    },
+    {
+      id: 10,
+      img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
+      name: 'Pizza',
+      desc: 'Its cool meal',
+      price: '100tg',
+    },
+    {
+      id: 11,
+      img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
+      name: 'Pizza',
+      desc: 'Its cool meal',
+      price: '100tg',
+    },
+    {
+      id: 12,
+      img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
+      name: 'Pizza',
+      desc: 'Its cool meal',
+      price: '100tg',
+    },
+
+    {
+      id: 13,
+      img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
+      name: 'Pizza',
+      desc: 'Its cool meal',
+      price: '100tg',
+    },
+    {
+      id: 14,
+      img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
+      name: 'Pizza',
+      desc: 'Its cool meal',
+      price: '100tg',
+    },
+    {
+      id: 15,
+      img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
+      name: 'Pizza',
+      desc: 'Its cool meal',
+      price: '100tg',
+    },
+    {
+      id: 16,
+      img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
+      name: 'Pizza',
+      desc: 'Its cool meal',
+      price: '100tg',
+    },
+  ];
 
   return (
     <IonApp>
@@ -55,7 +235,11 @@ const App: React.FC = () => {
             role: null,
             basket: null,
             token,
+            counter: counter as any,
+            menuItems: menuItems as any,
             setToken,
+            addItem,
+            removeItem,
           }}>
           <IonTabs>
             <IonRouterOutlet>
