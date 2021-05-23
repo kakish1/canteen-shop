@@ -45,6 +45,8 @@ import Login from './pages/Login';
 
 const App: React.FC = () => {
   const [role, setRole] = useState('student');
+  const [token, setToken] = useState<any>(localStorage.getItem('token'));
+
   return (
     <IonApp>
       <IonReactRouter>
@@ -52,6 +54,8 @@ const App: React.FC = () => {
           value={{
             role: null,
             basket: null,
+            token,
+            setToken,
           }}>
           <IonTabs>
             <IonRouterOutlet>

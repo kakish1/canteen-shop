@@ -73,3 +73,14 @@ ion-chip {
     align-items: center;
     width: 50%;
   }
+
+.info {
+	margin-left: 10px;
+}
+
+.avatar{
+	margin:auto;
+	border-radius: 2% !important;
+	width: 30%;
+	height: 40%;
+}

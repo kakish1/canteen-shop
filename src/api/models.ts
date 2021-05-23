@@ -5,10 +5,16 @@ export type User = {
   middleName: string;
   phoneNumber: string;
   email: string;
+  registrationDate: string;
 };
 
 export type Roles = {
   name: string;
   description: string;
   value: string;
+};
+
+export type Login = {
+  username: string;
+  hashPassword: string;
 };

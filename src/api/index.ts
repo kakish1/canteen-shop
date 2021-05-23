@@ -1,11 +1,10 @@
 import * as axios from 'axios';
+import { Login } from './models';
 
 const instance = () =>
   axios.default.create({
     headers: {
       'Content-Type': 'application/json',
-      Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImVtYWlsIjoiMyIsIm5hbWVpZCI6IjIiLCJqdGkiOiJiNDRmM2E1OS0wYjA4LTQyNmUtYTNhNi02ZWFmNGMyMDQ5MjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNjIxNzczODI3LCJpc3MiOiJTY2hvb2xDYW50ZWVuIiwiYXVkIjoiU2Nob29sQ2FudGVlbiJ9.LXwMbEF9piP85kszuBwYV08tUIrbZiTXt6PtShjh--0',
     },
   });
 
@@ -26,3 +25,8 @@ export const getLoggerUser = () => {
 //   return instance().delete(`/api/ServiceSpending/${id}`);
 // };
 //#endregion
+
+export const login = (loginData: Login) => {
+  debugger;
+  return instance().post('http://localhost:52425/api/Login', loginData);
+};

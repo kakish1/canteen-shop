@@ -65,7 +65,7 @@ const Tab3: React.FC = () => {
       <IonContent fullscreen slot="fixed">
         <IonCard>
           <IonHeader>
-            <IonAvatar style={{ margin: 'auto' }}>
+            <IonAvatar className="avatar">
               <img src="https://bipbap.ru/wp-content/uploads/2018/03/01-700x1050-640x960.jpg" />
             </IonAvatar>
           </IonHeader>
@@ -74,23 +74,25 @@ const Tab3: React.FC = () => {
               <IonListHeader>Персональная информация</IonListHeader>
               <IonItem>
                 <IonIcon icon={mailOutline} />
-                Email:
-                <IonLabel> erassyl.k@gmail.com</IonLabel>
+                <span className="info">Почтовый адрес:</span>
+                <IonLabel> {loggedUser?.email}</IonLabel>
               </IonItem>
               <IonItem>
                 <IonIcon icon={callOutline} />
-                Phone:
-                <IonLabel> +7 708 887 45 30</IonLabel>
+                <span className="info">Номер телефона:</span>
+                <IonLabel> {loggedUser?.phoneNumber}</IonLabel>
               </IonItem>
               <IonItem>
                 <IonIcon icon={personOutline} />
-                FullName:
-                <IonLabel> erassyl.k@gmail.com</IonLabel>
+                <span className="info">ФИО:</span>
+                <IonLabel>
+                  {loggedUser?.firstName} {loggedUser?.lastName} {loggedUser?.middleName}
+                </IonLabel>
               </IonItem>
               <IonItem>
                 <IonIcon icon={calendarOutline} />
-                Registration Date:
-                <IonLabel> 30.03.2020</IonLabel>
+                <span className="info">Дата регистрации:</span>
+                <IonLabel> {loggedUser?.registrationDate}</IonLabel>
               </IonItem>
             </IonList>
             <IonButton expand="full" color="secondary">
