@@ -65,3 +65,11 @@ ion-chip {
 	text-transform: uppercase;
 	margin: 0 auto;
 }
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 50%;
+  }

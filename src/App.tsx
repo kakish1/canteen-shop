@@ -41,6 +41,7 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import { Context } from './defaults';
 import { useState } from 'react';
+import Login from './pages/Login';
 
 const App: React.FC = () => {
   const [role, setRole] = useState('student');
@@ -66,6 +67,9 @@ const App: React.FC = () => {
               <Route exact path="/">
                 <Redirect to="/menu" />
               </Route>
+              <Route exact path="/login">
+                <Login />
+              </Route>
             </IonRouterOutlet>
             <IonTabBar slot="bottom">
               <IonTabButton tab="menu" href="/menu">
@@ -85,6 +89,11 @@ const App: React.FC = () => {
               <IonTabButton tab="profile" href="/profile">
                 <IonIcon icon={personCircleOutline} />
                 <IonLabel>Профиль</IonLabel>
+              </IonTabButton>
+
+              <IonTabButton tab="login" href="/login">
+                <IonIcon icon={personCircleOutline} />
+                <IonLabel>Login</IonLabel>
               </IonTabButton>
             </IonTabBar>
           </IonTabs>

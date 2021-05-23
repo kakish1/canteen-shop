@@ -9,13 +9,40 @@ import {
   IonHeader,
   IonIcon,
   IonLabel,
+  IonList,
+  IonListHeader,
   IonPage,
   IonTitle,
   IonToolbar,
+  IonItem,
+  IonGrid,
+  IonRow,
+  IonCol,
 } from '@ionic/react';
+import { useEffect, useState } from 'react';
+import { getLoggerUser } from '../api';
+import { User } from '../api/models';
 import './Tab3.css';
+import {
+  basketOutline,
+  calendarOutline,
+  calendarSharp,
+  callOutline,
+  cardOutline,
+  ellipse,
+  mailOutline,
+  personCircleOutline,
+  personOutline,
+  square,
+  triangle,
+} from 'ionicons/icons';
 
 const Tab3: React.FC = () => {
+  const [loggedUser, setLoggedUser] = useState<User>();
+  useEffect(() => {
+    getLoggerUser().then(({ data }) => setLoggedUser(data));
+  }, []);
+
   return (
     <IonPage>
       <IonHeader translucent={true}>
@@ -30,7 +57,7 @@ const Tab3: React.FC = () => {
           <IonTitle>&nbsp;</IonTitle>
           <IonButtons slot="end">
             <IonButton>
-              <IonIcon slot="icon-only"></IonIcon>
+              <IonIcon slot="mail-outline"></IonIcon>
             </IonButton>
           </IonButtons>
         </IonToolbar>
@@ -38,29 +65,36 @@ const Tab3: React.FC = () => {
       <IonContent fullscreen slot="fixed">
         <IonCard>
           <IonHeader>
-            <IonAvatar>
+            <IonAvatar style={{ margin: 'auto' }}>
               <img src="https://bipbap.ru/wp-content/uploads/2018/03/01-700x1050-640x960.jpg" />
             </IonAvatar>
           </IonHeader>
           <IonCardContent>
-            <div className="user-meta ion-text-center">
-              <h3 className="playername">Roger Federer</h3>
-              <h5 className="country">Switzerland</h5>
-              <h6 className="ranking">
-                Current ranking:
-                <IonChip>
-                  <IonLabel>2</IonLabel>
-                </IonChip>
-              </h6>
-            </div>
-            <IonButton expand="full" color="primary">
-              http://rogerfederer.com
-            </IonButton>
+            <IonList>
+              <IonListHeader>Персональная информация</IonListHeader>
+              <IonItem>
+                <IonIcon icon={mailOutline} />
+                Email:
+                <IonLabel> erassyl.k@gmail.com</IonLabel>
+              </IonItem>
+              <IonItem>
+                <IonIcon icon={callOutline} />
+                Phone:
+                <IonLabel> +7 708 887 45 30</IonLabel>
+              </IonItem>
+              <IonItem>
+                <IonIcon icon={personOutline} />
+                FullName:
+                <IonLabel> erassyl.k@gmail.com</IonLabel>
+              </IonItem>
+              <IonItem>
+                <IonIcon icon={calendarOutline} />
+                Registration Date:
+                <IonLabel> 30.03.2020</IonLabel>
+              </IonItem>
+            </IonList>
             <IonButton expand="full" color="secondary">
-              @RogerFederer on Twitter
-            </IonButton>
-            <IonButton expand="full" color="secondary">
-              View profile at ATP
+              История заказов
             </IonButton>
           </IonCardContent>
         </IonCard>
