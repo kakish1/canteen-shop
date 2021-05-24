@@ -9,14 +9,7 @@ import {
   IonTabs,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import {
-  basketOutline,
-  cardOutline,
-  ellipse,
-  personCircleOutline,
-  square,
-  triangle,
-} from 'ionicons/icons';
+import { basketOutline, cardOutline, personCircleOutline } from 'ionicons/icons';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
@@ -40,9 +33,10 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import { Context } from './defaults';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Login from './pages/Login';
 import { ItemList } from './api/models';
+import OrderHistory from './pages/OrderHistory';
 
 const App: React.FC = () => {
   const [role, setRole] = useState('student');
@@ -117,84 +111,84 @@ const App: React.FC = () => {
       img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
       name: 'Pizza',
       desc: 'Its cool meal',
-      price: '100tg',
+      price: 250,
     },
     {
       id: 2,
       img: 'https://img.buzzfeed.com/video-api-prod/assets/7500687a06b34ee29c84a044861a01fc/BFV9770_DoubleCheeseburgerasmadebyErikAnderson-Thumb1080SQ.jpg?output-format=auto&output-quality=auto',
       name: 'Double Cheese Burger ',
       desc: 'Its a mutherfucing BURGEEEEEEEEEEEEEEEEEEEER',
-      price: '100tg',
+      price: 250,
     },
     {
       id: 3,
       img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
       name: 'Pizza',
       desc: 'Its cool meal',
-      price: '100tg',
+      price: 250,
     },
     {
       id: 4,
       img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
       name: 'Pizza',
       desc: 'Its cool meal',
-      price: '100tg',
+      price: 250,
     },
     {
       id: 5,
       img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
       name: 'Pizza',
       desc: 'Its cool meal',
-      price: '100tg',
+      price: 250,
     },
     {
       id: 6,
       img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
       name: 'Pizza',
       desc: 'Its cool meal',
-      price: '100tg',
+      price: 250,
     },
     {
       id: 7,
       img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
       name: 'Pizza',
       desc: 'Its cool meal',
-      price: '100tg',
+      price: 250,
     },
     {
       id: 8,
       img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
       name: 'Pizza',
       desc: 'Its cool meal',
-      price: '100tg',
+      price: 250,
     },
     {
       id: 9,
       img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
       name: 'Pizza',
       desc: 'Its cool meal',
-      price: '100tg',
+      price: 250,
     },
     {
       id: 10,
       img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
       name: 'Pizza',
       desc: 'Its cool meal',
-      price: '100tg',
+      price: 250,
     },
     {
       id: 11,
       img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
       name: 'Pizza',
       desc: 'Its cool meal',
-      price: '100tg',
+      price: 250,
     },
     {
       id: 12,
       img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
       name: 'Pizza',
       desc: 'Its cool meal',
-      price: '100tg',
+      price: 250,
     },
 
     {
@@ -202,28 +196,28 @@ const App: React.FC = () => {
       img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
       name: 'Pizza',
       desc: 'Its cool meal',
-      price: '100tg',
+      price: 250,
     },
     {
       id: 14,
       img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
       name: 'Pizza',
       desc: 'Its cool meal',
-      price: '100tg',
+      price: 250,
     },
     {
       id: 15,
       img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
       name: 'Pizza',
       desc: 'Its cool meal',
-      price: '100tg',
+      price: 250,
     },
     {
       id: 16,
       img: 'https://assets3.thrillist.com/v1/image/2919049/1200x630/flatten;crop_down;jpeg_quality=70',
       name: 'Pizza',
       desc: 'Its cool meal',
-      price: '100tg',
+      price: 250,
     },
   ];
 
@@ -257,6 +251,9 @@ const App: React.FC = () => {
               </Route>
               <Route exact path="/login">
                 <Login />
+              </Route>
+              <Route exact path="/history">
+                <OrderHistory />
               </Route>
             </IonRouterOutlet>
             <IonTabBar slot="bottom">

@@ -13,6 +13,12 @@ export const getLoggerUser = () => {
   return instance().get('http://localhost:52425/api/User/GetLoggedUser');
 };
 
+export const pay = (data: any) => {
+  console.log(data);
+  return instance().post('http://localhost:52425/api/User/GetLoggedUser');
+  // ербо добей апишку плз
+};
+
 // export const saveServiceSpending = (data: any) => {
 //   return instance().post('/api/ServiceSpending', data);
 // };
