@@ -9,7 +9,7 @@ import {
   IonTabs,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { basketOutline, cardOutline, personCircleOutline } from 'ionicons/icons';
+import { basketOutline, cardOutline, personCircleOutline, settingsOutline } from 'ionicons/icons';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
@@ -37,9 +37,11 @@ import { useState } from 'react';
 import Login from './pages/Login';
 import { ItemList } from './api/models';
 import OrderHistory from './pages/OrderHistory';
+import AdminPanel from './pages/AdminPanel';
+import AddingMenu from './components/AddingMenu';
 
 const App: React.FC = () => {
-  const [role, setRole] = useState('student');
+  const [role, setRole] = useState('admin');
   const [counter, setCounter] = useState<any>([]);
   const [token, setToken] = useState<any>(localStorage.getItem('token'));
 
@@ -255,6 +257,12 @@ const App: React.FC = () => {
               <Route exact path="/history">
                 <OrderHistory />
               </Route>
+              <Route exact path="/admin">
+                <AdminPanel />
+              </Route>
+              <Route exact path="/newmenu">
+                <AddingMenu />
+              </Route>
             </IonRouterOutlet>
             <IonTabBar slot="bottom">
               <IonTabButton tab="menu" href="/menu">
@@ -266,9 +274,9 @@ const App: React.FC = () => {
                 <IonLabel>Корзина</IonLabel>
               </IonTabButton>
               {role === 'admin' && (
-                <IonTabButton tab="order" href="/order">
-                  <IonIcon icon={cardOutline} />
-                  <IonLabel>Корзина</IonLabel>
+                <IonTabButton tab="admin" href="/admin">
+                  <IonIcon icon={settingsOutline} />
+                  <IonLabel>Панель</IonLabel>
                 </IonTabButton>
               )}
               <IonTabButton tab="profile" href="/profile">
