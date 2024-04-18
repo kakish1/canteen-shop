@@ -1,4 +1,1 @@
-@Html.Partial("HomeSidebar", new ViewDataDictionary { { "ActiveMenu", ViewBag.ActiveMenu } })
-@{
-    var activeMenu = ViewData["ActiveMenu"];
-}
+@Html.DropDownListFor(m => Model.ExpHoldResult, d, "-- Выбор --", new { @class = "form-control", @id = "ExpertResult", @style = "width: 350px;" })
