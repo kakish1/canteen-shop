@@ -1,1 +1,1 @@
-@Html.DropDownListFor(m => Model.ExpHoldResult, d, "-- Выбор --", new { @class = "form-control", @id = "ExpertResult", @style = "width: 350px;" })
+        <StackPanel Visibility="{Binding IsIndicatorVisible, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
