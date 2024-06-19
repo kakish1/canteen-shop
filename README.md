@@ -83,4 +83,44 @@ public string ChosenDetailsToXml(List<SelectListItem> list)
         }
 
 
+
+public List<SelectListItem> ChosenDetailsToList(string xml)
+{
+    List<SelectListItem> list = new List<SelectListItem>();
+
+    if (!string.IsNullOrEmpty(xml))
+    {
+        XmlDocument xmlDoc = new XmlDocument();
+        xmlDoc.LoadXml(xml);
+
+        XmlNodeList detailNodes = xmlDoc.SelectNodes("//Details/Detail");
+
+        foreach (XmlNode detailNode in detailNodes)
+        {
+            SelectListItem item = new SelectListItem();
+
+            XmlNode selectedNode = detailNode.SelectSingleNode("Selected");
+            if (selectedNode != null)
+            {
+                item.Selected = bool.Parse(selectedNode.InnerText);
+            }
+
+            XmlNode textNode = detailNode.SelectSingleNode("Text");
+            if (textNode != null)
+            {
+                item.Text = textNode.InnerText;
+            }
+
+            XmlNode valueNode = detailNode.SelectSingleNode("Value");
+            if (valueNode != null)
+            {
+                item.Value = valueNode.InnerText;
+            }
+
+            list.Add(item);
+        }
+    }
+
+    return list;
+}
         
