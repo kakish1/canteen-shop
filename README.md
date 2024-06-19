@@ -6,3 +6,28 @@ List<SelectedListItem> = new List<SelectedListItem>() {
   Text =123, 
   Value 1
 } 
+
+
+ public string ChosenDetailsToXml(List<SelectListItem> list)
+        {
+
+            if (list == null || list.Count == 0) return "";
+
+            XmlDocument xdResult = new XmlDocument();
+            xdResult.LoadXml("<Details>" +
+                "<Detail />" +
+                "</Details>");
+            for (int i = 0; i < list.Count; i++)
+            {
+                XmlElement elem = xdResult.CreateElement("Selected");
+                XmlElement elem2 = xdResult.CreateElement("Text");
+                XmlElement elem3 = xdResult.CreateElement("Value");
+                elem.InnerText = list[i].Selected.ToString();
+                elem2.InnerText = list[i].Text.ToString();
+                elem3.InnerText = list[i].Value.ToString();
+                xdResult.DocumentElement["Detail"].AppendChild(elem);
+                xdResult.DocumentElement["Detail"].AppendChild(elem2);
+                xdResult.DocumentElement["Detail"].AppendChild(elem3);
+            }
+            return xdResult.InnerXml;
+        }
