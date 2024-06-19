@@ -1,1 +1,4 @@
-        <StackPanel Visibility="{Binding IsIndicatorVisible, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+<select class="col-sm-12 form-control ChangeCommmentTemp" id="BaseMsbExpertise_ChosenReasonForReturnNew" name="BaseMsbExpertise.ChosenReasonForReturnNew"><option value="">-- Выбор --</option>
+<option value="1">Отсутствую правоустанавливающие документы</option>
+<option selected="selected" value="2">Проверка категория 2</option>
+</select>
