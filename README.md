@@ -64,4 +64,23 @@ public string ChosenDetailsToXml(List<SelectListItem> list)
 }
 
 
+ public List<SelectListItem> ChosenDetailsToList(string str)
+        {
+
+            List<SelectListItem> l = new List<SelectListItem>();
+            if (!string.IsNullOrEmpty(str))
+            {
+                XmlDocument list = new XmlDocument();
+                list.LoadXml(str);
+                XmlNodeList idNodes = list.SelectNodes("Reasons/Comments/Comment");
+                // Filling the list
+                foreach (XmlNode node in idNodes)
+                    l.Add(new SelectListItem() { Text = node.InnerText });
+            }
+
+
+            return l;
+        }
+
+
         
