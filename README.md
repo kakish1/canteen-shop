@@ -31,3 +31,37 @@ List<SelectedListItem> = new List<SelectedListItem>() {
             }
             return xdResult.InnerXml;
         }
+
+
+public string ChosenDetailsToXml(List<SelectListItem> list)
+{
+    if (list == null || list.Count == 0) return "";
+
+    XmlDocument xdResult = new XmlDocument();
+    XmlElement rootElement = xdResult.CreateElement("Details");
+    xdResult.AppendChild(rootElement);
+
+    foreach (var item in list)
+    {
+        XmlElement detailElement = xdResult.CreateElement("Detail");
+        
+        XmlElement selectedElement = xdResult.CreateElement("Selected");
+        selectedElement.InnerText = item.Selected.ToString();
+        detailElement.AppendChild(selectedElement);
+
+        XmlElement textElement = xdResult.CreateElement("Text");
+        textElement.InnerText = item.Text;
+        detailElement.AppendChild(textElement);
+
+        XmlElement valueElement = xdResult.CreateElement("Value");
+        valueElement.InnerText = item.Value;
+        detailElement.AppendChild(valueElement);
+
+        rootElement.AppendChild(detailElement);
+    }
+
+    return xdResult.InnerXml;
+}
+
+
+        
