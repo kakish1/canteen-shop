@@ -18,3 +18,19 @@
           />
         )}
       />
+
+
+
+
+
+
+
+      const datePattern = /^\d{2}\.\d{2}\.\d{4}$/;
+    if (datePattern.test(value)) {
+      const formattedDate = moment(value, 'DD.MM.YYYY').format('DD.MM.YYYY');
+      setParamByDocId(formattedDate, item.id, name, params, setParams);
+      setInputValue(formattedDate);
+    } else {
+      // Если формат не подходит, просто обновляем ввод без изменения состояния параметра
+      setInputValue(value);
+    }
