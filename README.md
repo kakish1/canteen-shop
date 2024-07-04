@@ -1,11 +1,5 @@
- <StackPanel Visibility="{Binding IsAvailableSumTextVisible, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Label Content="{DynamicResource AmountLimit}" Foreground="#FFFBAE17" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Label Content="{Binding Lim}" Foreground="White" FontWeight="Bold" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Label Content="{Binding TransactionInformation.Currency}" Foreground="White" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <!--<Label FontSize="24" TextOptions.TextHintingMode="Animated" Foreground="#FFFBAE17" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock TextWrapping="WrapWithOverflow" Text="Доступная сумма для пополнения:" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" />
-            </Label>
-            <Label FontSize="24" TextOptions.TextHintingMode="Animated" Foreground="#FFFBAE17" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock TextWrapping="WrapWithOverflow" Text="{Binding Lim}" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" />
-            </Label>-->
-        </StackPanel>
+Unhandled exception. System.IO.FileNotFoundException: Could not load file or assembly 'Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed'. Не удается найти указанный файл.
+File name: 'Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed'
+   at Microsoft.Tools.ServiceModel.Svcutil.Tool.MainAsync(String[] args, ILogger logger, CancellationToken cancellationToken)
+   at Microsoft.Tools.ServiceModel.Svcutil.Tool.Main(String[] args) in /_/src/dotnet-svcutil/lib/src/Tool.cs:line 73
+   at SvcutilBootstrap.Program.Main(String[] args) in C:\Users\00049466\AppData\Local\Temp\dotnet-svcutil-lib_Temp\2024_Jul_04_12_33_47\SvcutilBootstrapper\Program.cs:line 5
