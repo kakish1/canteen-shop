@@ -1,5 +1,37 @@
-Unhandled exception. System.IO.FileNotFoundException: Could not load file or assembly 'Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed'. Не удается найти указанный файл.
-File name: 'Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed'
-   at Microsoft.Tools.ServiceModel.Svcutil.Tool.MainAsync(String[] args, ILogger logger, CancellationToken cancellationToken)
-   at Microsoft.Tools.ServiceModel.Svcutil.Tool.Main(String[] args) in /_/src/dotnet-svcutil/lib/src/Tool.cs:line 73
-   at SvcutilBootstrap.Program.Main(String[] args) in C:\Users\00049466\AppData\Local\Temp\dotnet-svcutil-lib_Temp\2024_Jul_04_12_33_47\SvcutilBootstrapper\Program.cs:line 5
+Ошибка, которую вы описали, указывает на проблему с отсутствующей библиотекой Newtonsoft.Json. Вот несколько шагов, которые вы можете предпринять для решения этой проблемы:
+
+1. **Проверка установки Newtonsoft.Json**:
+    Убедитесь, что библиотека Newtonsoft.Json установлена в вашем проекте. Вы можете сделать это, выполнив следующую команду в консоли:
+
+    ```bash
+    dotnet add package Newtonsoft.Json --version 13.0.0
+    ```
+
+2. **Проверка файла .csproj**:
+    Убедитесь, что в вашем файле .csproj есть ссылка на Newtonsoft.Json. Она должна выглядеть примерно так:
+
+    ```xml
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.0" />
+    </ItemGroup>
+    ```
+
+3. **Очистка и восстановление проекта**:
+    Попробуйте очистить и восстановить ваш проект, чтобы убедиться, что все зависимости загружены правильно:
+
+    ```bash
+    dotnet clean
+    dotnet restore
+    ```
+
+4. **Проверка версии .NET SDK**:
+    Убедитесь, что у вас установлена последняя версия .NET SDK. Вы можете проверить текущую версию с помощью команды:
+
+    ```bash
+    dotnet --version
+    ```
+
+5. **Проверка наличия конфликта версий**:
+    В некоторых случаях может возникнуть конфликт версий библиотек. Проверьте, нет ли других зависимостей, которые могут требовать другую версию Newtonsoft.Json.
+
+Если после выполнения этих шагов проблема не решена, предоставьте дополнительную информацию о вашем проекте и настройках, чтобы я мог помочь более детально.
