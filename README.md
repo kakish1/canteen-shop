@@ -550,3 +550,172 @@ export const PackageOfDocuments = ({ disabled = false }) => {
     </div>
   );
 };
+
+
+
+
+
+
+index.js:319 Warning: Each child in a list should have a unique "key" prop.
+
+Check the render method of `Documents`. See https://fb.me/react-warning-keys for more information.
+    in Fragment (created by Documents)
+    in Documents (at packageOfDocuments/index.js:545)
+    in div (created by AccordionContent)
+    in AccordionContent (at packageOfDocuments/index.js:540)
+    in div (created by AccordionAccordion)
+    in AccordionAccordion (created by Accordion)
+    in Accordion (at packageOfDocuments/index.js:530)
+    in div (at packageOfDocuments/index.js:529)
+    in PackageOfDocuments (at kaoako/index.js:151)
+    in div (at kaoako/index.js:146)
+    in Unknown (at kaoako/index.js:195)
+    in div (at formContainer/index.js:28)
+    in div (created by Segment)
+    in Segment (at formContainer/index.js:15)
+    in div (created by Container)
+    in Container (at formContainer/index.js:14)
+    in div (at formContainer/index.js:13)
+    in FormContainer (at commonForm.js:417)
+    in Unknown (at kaoako/index.js:188)
+    in Index (at commonForm.js:97)
+    in CommonContainer (at containers/index.js:7)
+    in div (at containers/index.js:6)
+    in Page (created by Context.Consumer)
+    in Route (at src/index.js:18)
+    in Router (created by BrowserRouter)
+    in BrowserRouter (at src/index.js:16)
+console.<computed> @ index.js:1
+overrideMethod @ console.js:288
+printWarning @ react.development.js:315
+error @ react.development.js:287
+validateExplicitKey @ react.development.js:1630
+validateChildKeys @ react.development.js:1656
+createElementWithValidation @ react.development.js:1806
+Documents @ index.js:319
+renderWithHooks @ react-dom.development.js:14803
+updateFunctionComponent @ react-dom.development.js:17034
+beginWork @ react-dom.development.js:18610
+beginWork$1 @ react-dom.development.js:23179
+performUnitOfWork @ react-dom.development.js:22154
+workLoopSync @ react-dom.development.js:22130
+performSyncWorkOnRoot @ react-dom.development.js:21756
+(anonymous) @ react-dom.development.js:11089
+unstable_runWithPriority @ scheduler.development.js:653
+runWithPriority$1 @ react-dom.development.js:11039
+flushSyncCallbackQueueImpl @ react-dom.development.js:11084
+flushSyncCallbackQueue @ react-dom.development.js:11072
+scheduleUpdateOnFiber @ react-dom.development.js:21199
+dispatchAction @ react-dom.development.js:15660
+(anonymous) @ index.js:479
+Promise.then (async)
+(anonymous) @ index.js:455
+commitHookEffectListMount @ react-dom.development.js:19731
+commitPassiveHookEffects @ react-dom.development.js:19769
+callCallback @ react-dom.development.js:188
+invokeGuardedCallbackDev @ react-dom.development.js:237
+invokeGuardedCallback @ react-dom.development.js:292
+flushPassiveEffectsImpl @ react-dom.development.js:22853
+unstable_runWithPriority @ scheduler.development.js:653
+runWithPriority$1 @ react-dom.development.js:11039
+flushPassiveEffects @ react-dom.development.js:22820
+performSyncWorkOnRoot @ react-dom.development.js:21737
+(anonymous) @ react-dom.development.js:11089
+unstable_runWithPriority @ scheduler.development.js:653
+runWithPriority$1 @ react-dom.development.js:11039
+flushSyncCallbackQueueImpl @ react-dom.development.js:11084
+flushSyncCallbackQueue @ react-dom.development.js:11072
+scheduleUpdateOnFiber @ react-dom.development.js:21199
+dispatchAction @ react-dom.development.js:15660
+_callee$ @ useVariables.js:44
+tryCatch @ useVariables.js:2
+(anonymous) @ useVariables.js:2
+(anonymous) @ useVariables.js:2
+asyncGeneratorStep @ asyncToGenerator.js:3
+_next @ asyncToGenerator.js:25
+Promise.then (async)
+asyncGeneratorStep @ asyncToGenerator.js:13
+_next @ asyncToGenerator.js:25
+Promise.then (async)
+asyncGeneratorStep @ asyncToGenerator.js:13
+_next @ asyncToGenerator.js:25
+(anonymous) @ asyncToGenerator.js:32
+(anonymous) @ asyncToGenerator.js:21
+fetchData @ useVariables.js:21
+(anonymous) @ useVariables.js:47
+commitHookEffectListMount @ react-dom.development.js:19731
+commitPassiveHookEffects @ react-dom.development.js:19769
+callCallback @ react-dom.development.js:188
+invokeGuardedCallbackDev @ react-dom.development.js:237
+invokeGuardedCallback @ react-dom.development.js:292
+flushPassiveEffectsImpl @ react-dom.development.js:22853
+unstable_runWithPriority @ scheduler.development.js:653
+runWithPriority$1 @ react-dom.development.js:11039
+flushPassiveEffects @ react-dom.development.js:22820
+performSyncWorkOnRoot @ react-dom.development.js:21737
+(anonymous) @ react-dom.development.js:11089
+unstable_runWithPriority @ scheduler.development.js:653
+runWithPriority$1 @ react-dom.development.js:11039
+flushSyncCallbackQueueImpl @ react-dom.development.js:11084
+flushSyncCallbackQueue @ react-dom.development.js:11072
+scheduleUpdateOnFiber @ react-dom.development.js:21199
+dispatchAction @ react-dom.development.js:15660
+_callee2$ @ useVariables.js:112
+tryCatch @ useVariables.js:2
+(anonymous) @ useVariables.js:2
+(anonymous) @ useVariables.js:2
+asyncGeneratorStep @ asyncToGenerator.js:3
+_next @ asyncToGenerator.js:25
+Promise.then (async)
+asyncGeneratorStep @ asyncToGenerator.js:13
+_next @ asyncToGenerator.js:25
+(anonymous) @ asyncToGenerator.js:32
+(anonymous) @ asyncToGenerator.js:21
+fetchAll @ useVariables.js:86
+(anonymous) @ useVariables.js:115
+commitHookEffectListMount @ react-dom.development.js:19731
+commitPassiveHookEffects @ react-dom.development.js:19769
+callCallback @ react-dom.development.js:188
+invokeGuardedCallbackDev @ react-dom.development.js:237
+invokeGuardedCallback @ react-dom.development.js:292
+flushPassiveEffectsImpl @ react-dom.development.js:22853
+unstable_runWithPriority @ scheduler.development.js:653
+runWithPriority$1 @ react-dom.development.js:11039
+flushPassiveEffects @ react-dom.development.js:22820
+(anonymous) @ react-dom.development.js:22699
+workLoop @ scheduler.development.js:597
+flushWork @ scheduler.development.js:552
+performWorkUntilDeadline @ scheduler.development.js:164
+Show 82 more frames
+Show lessUnderstand this error
+index.js:479 Warning: Each child in a list should have a unique "key" prop. See https://fb.me/react-warning-keys for more information.
+    in DocRows (at packageOfDocuments/index.js:327)
+    in tbody (created by TableBody)
+    in TableBody (at packageOfDocuments/index.js:324)
+    in table (created by Table)
+    in Table (at packageOfDocuments/index.js:304)
+    in Documents (at packageOfDocuments/index.js:545)
+    in div (created by AccordionContent)
+    in AccordionContent (at packageOfDocuments/index.js:540)
+    in div (created by AccordionAccordion)
+    in AccordionAccordion (created by Accordion)
+    in Accordion (at packageOfDocuments/index.js:530)
+    in div (at packageOfDocuments/index.js:529)
+    in PackageOfDocuments (at kaoako/index.js:151)
+    in div (at kaoako/index.js:146)
+    in Unknown (at kaoako/index.js:195)
+    in div (at formContainer/index.js:28)
+    in div (created by Segment)
+    in Segment (at formContainer/index.js:15)
+    in div (created by Container)
+    in Container (at formContainer/index.js:14)
+    in div (at formContainer/index.js:13)
+    in FormContainer (at commonForm.js:417)
+    in Unknown (at kaoako/index.js:188)
+    in Index (at commonForm.js:97)
+    in CommonContainer (at containers/index.js:7)
+    in div (at containers/index.js:6)
+    in Page (created by Context.Consumer)
+    in Route (at src/index.js:18)
+    in Router (created by BrowserRouter)
+    in BrowserRouter (at src/index.js:16)
