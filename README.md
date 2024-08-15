@@ -1,5 +1,12 @@
-function formatNumberManual(number) {
-  const parts = number.toFixed(2).split('.');  // Округление до 2 знаков после запятой
-  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');  // Добавление тысячных разделителей
-  return parts.join('.');
+function formatNumber(number) {
+  // Преобразуем число в строку с двумя знаками после запятой
+  let [integerPart, decimalPart] = number
+    .toFixed(2) // Преобразуем к строке с двумя знаками после точки
+    .split('.'); // Разделяем на целую и дробную часть
+  
+  // Добавляем тысячные разделители к целой части
+  integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+  // Объединяем целую и дробную части обратно
+  return integerPart + '.' + decimalPart;
 }
